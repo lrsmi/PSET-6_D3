@@ -23,21 +23,47 @@
 
 			var svg = d3.select("div#main")
 						.append("svg")
-						.attr("width", width)
-						.attr("height", height);
+						.attr("width", 2400)
+						.attr("height", 2000);
 			svg.selectAll("rect")
                .data(agriculturedata)
                .enter()
                .append("rect")
                .attr("y", function(d, i) {
-                       return i*30 + 30;
+                       return i*50 + 90;
                   })
-               .attr("x", 50)
+               .attr("x", 110)
                .attr("width", function(d) {
                        return d[1]*2;
                   })
           	   .attr("height", 20)
-               .attr("fill", "orange")
+               .attr("fill", "green")
+							 .attr("fill-opacity","0.7")
+
+			svg.selectAll("text")
+			         .data(agriculturedata)
+							 .enter()
+							 .append("text")
+							 .attr("class", "text-styling")
+							 .attr("x", 100)
+							 .attr("y", function(d,i){
+								         return i*50 +90;
+											 })
+							 .attr("dy", ".75em")
+							 .attr("font-family" , "Arial")
+							 .attr("font-size" , "14px")
+							 .attr("text-anchor" , "end")
+							 .text(function(d){
+								 return d[0];
+							 })
+			svg.append("text")
+			         .attr("x" , 50)
+							 .attr("y" , 50)
+							 .attr("class" , "titlestyling")
+							 .attr("font-family" , "Arial")
+							 .attr("font-size" , "18px")
+							 .text("Agricultural Land (as percentage of total land)")
+
 
 		</script>
 		</div>
